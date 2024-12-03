@@ -6,6 +6,7 @@ engine:
 # LLM providers and their models
 providers:
   openai:
+    name: "openai"
     enabled: true
     models:
       - name: "gpt-4"
@@ -17,6 +18,7 @@ providers:
       retry_after: 20
 
   anthropic:
+    name: "anthropic"
     enabled: true
     models:
       - name: "claude-3-sonnet-20240229"
@@ -27,8 +29,10 @@ providers:
       requests_per_minute: 50
       retry_after: 20
 
+  # Template for additional providers (disabled by default)
   cohere:
-    enabled: false
+    name: "cohere"
+    enabled: false  # Disabled by default
     models:
       - name: "command-nightly"
         description: "Latest Cohere model"

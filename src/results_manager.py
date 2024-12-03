@@ -5,6 +5,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from typing import List, Dict
+import logging
+
+logger = logging.getLogger(__name__)
 
 class ResultsManager:
     def __init__(self, output_dir: str = "results"):
@@ -26,53 +29,72 @@ class ResultsManager:
             
     def analyze_results(self):
         """Analyze results and generate visualizations."""
+        if not self.results:
+            logger.warning("No results to analyze")
+            return
+            
         df = pd.DataFrame(self.results)
         
         # Create output directory for plots
         plots_dir = self.output_dir / "plots"
         plots_dir.mkdir(exist_ok=True)
         
-        # 1. Win rates by model
-        self._plot_win_rates(df, plots_dir)
+        # Separate engine games and LLM vs LLM games
+        engine_games = df[df['engine_skill_level'].notna()]
+        llm_games = df[df['engine_skill_level'].isna()]
         
-        # 2. Illegal moves analysis
-        self._plot_illegal_moves(df, plots_dir)
-        
-        # 3. Performance vs engine levels
-        self._plot_engine_performance(df, plots_dir)
+        if not engine_games.empty:
+            self._analyze_engine_games(engine_games, plots_dir)
+            
+        if not llm_games.empty:
+            self._analyze_llm_games(llm_games, plots_dir)
         
         # Generate summary statistics
         self._generate_summary_report(df)
         
-    def _plot_win_rates(self, df: pd.DataFrame, plots_dir: Path):
-        """Plot win rates for each model."""
+    def _analyze_engine_games(self, df: pd.DataFrame, plots_dir: Path):
+        """Analyze games against the chess engine."""
+        # Win rates by model
         plt.figure(figsize=(12, 6))
-        
-        # Calculate win rates
-        win_rates = df[df['result'].isin(['llm_won', 'engine_won'])].groupby('llm_model').agg({
+        win_rates = df.groupby('llm_model').agg({
             'result': lambda x: (x == 'llm_won').mean()
         })
         
         sns.barplot(data=win_rates.reset_index(), x='llm_model', y='result')
-        plt.title('Win Rates by Model')
+        plt.title('Win Rates vs Engine by Model')
         plt.xlabel('Model')
         plt.ylabel('Win Rate')
         plt.xticks(rotation=45)
         plt.tight_layout()
-        plt.savefig(plots_dir / 'win_rates.png')
+        plt.savefig(plots_dir / 'engine_win_rates.png')
         plt.close()
         
-    def _plot_illegal_moves(self, df: pd.DataFrame, plots_dir: Path):
-        """Plot illegal moves statistics."""
+        # Performance vs engine levels
+        self._plot_engine_performance(df, plots_dir)
+        
+    def _analyze_llm_games(self, df: pd.DataFrame, plots_dir: Path):
+        """Analyze LLM vs LLM games."""
         plt.figure(figsize=(12, 6))
         
-        sns.boxplot(data=df, x='llm_model', y='illegal_moves')
-        plt.title('Illegal Moves Distribution by Model')
+        # Calculate win rates for white and black
+        model_stats = pd.DataFrame()
+        for model in df['white_model'].unique():
+            white_games = df[df['white_model'] == model]
+            black_games = df[df['black_model'] == model]
+            
+            white_wins = (white_games['result'] == 'white_won').mean()
+            black_wins = (black_games['result'] == 'black_won').mean()
+            
+            model_stats.loc[model, 'White Win Rate'] = white_wins
+            model_stats.loc[model, 'Black Win Rate'] = black_wins
+        
+        model_stats.plot(kind='bar')
+        plt.title('Model Performance by Color')
         plt.xlabel('Model')
-        plt.ylabel('Number of Illegal Moves')
-        plt.xticks(rotation=45)
+        plt.ylabel('Win Rate')
+        plt.legend()
         plt.tight_layout()
-        plt.savefig(plots_dir / 'illegal_moves.png')
+        plt.savefig(plots_dir / 'llm_vs_llm_performance.png')
         plt.close()
         
     def _plot_engine_performance(self, df: pd.DataFrame, plots_dir: Path):

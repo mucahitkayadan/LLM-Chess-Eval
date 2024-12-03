@@ -167,4 +167,42 @@ For questions and feedback:
 
 ---
 Made with ❤️ by Muja Kayadan
+
+## Provider Configuration
+
+The framework supports multiple LLM providers. Each provider requires its own API key:
+
+1. **OpenAI**
+   - Set `OPENAI_API_KEY` in `.env`
+   - Models: GPT-4, GPT-4-turbo-preview
+
+2. **Anthropic**
+   - Set `ANTHROPIC_API_KEY` in `.env`
+   - Models: Claude-3-sonnet, Claude-instant
+
+3. **Cohere** (optional)
+   - Set `COHERE_API_KEY` in `.env` if you want to use Cohere models
+   - Models: command-nightly
+
+The framework will automatically enable providers based on available API keys. You only need to set the keys for the providers you want to use.
+
+### Adding New Providers
+
+To add a new provider:
+
+1. Add the provider configuration to `config/config.yaml`
+2. Add the API key to your `.env` file
+3. Update the key mapping in the code
+
+Example provider configuration:
+```yaml
+new_provider:
+  name: "new_provider"
+  enabled: false  # Will be automatically enabled if API key is present
+  models:
+    - name: "model-name"
+      description: "Model description"
+  rate_limit:
+    requests_per_minute: 50
+    retry_after: 20
 ```

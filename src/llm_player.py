@@ -22,21 +22,29 @@ class LLMPlayer:
         """
         self.model_name = model_name
         self.provider_config = provider_config
+        self.provider_name = provider_config.get('name')
         self.last_request_time = 0
         self.requests_this_minute = 0
         
         # Verify API keys and provider status
-        provider = provider_config.get('provider')
         if not provider_config.get('enabled', False):
-            raise ValueError(f"Provider {provider} is not enabled in config")
+            raise ValueError(f"Provider {self.provider_name} is not enabled in config")
             
-        api_key = self._get_api_key(provider)
-        if not api_key:
-            raise ValueError(f"API key not found for provider {provider}")
+        self.api_key = self._get_api_key()
+        if not self.api_key:
+            raise ValueError(f"API key not found for provider {self.provider_name}")
             
-        logger.info(f"Initialized {provider} model: {model_name}")
+        # Set API key in litellm based on provider
+        if self.provider_name == 'openai':
+            litellm.openai_key = self.api_key
+        elif self.provider_name == 'anthropic':
+            litellm.anthropic_key = self.api_key
+        elif self.provider_name == 'cohere':
+            litellm.cohere_key = self.api_key
+            
+        logger.info(f"Initialized {self.provider_name} model: {model_name}")
         
-    def _get_api_key(self, provider: str) -> Optional[str]:
+    def _get_api_key(self) -> Optional[str]:
         """Get API key for provider."""
         key_mapping = {
             'openai': 'OPENAI_API_KEY',
@@ -44,8 +52,17 @@ class LLMPlayer:
             'cohere': 'COHERE_API_KEY'
         }
         
-        env_var = key_mapping.get(provider)
-        return os.getenv(env_var) if env_var else None
+        env_var = key_mapping.get(self.provider_name)
+        if not env_var:
+            return None
+            
+        # Load only from .env file
+        from dotenv import dotenv_values
+        env_vars = dotenv_values()
+        api_key = env_vars.get(env_var)
+        
+        logger.info(f"Using API key for {self.provider_name} from .env: {api_key[:10] if api_key else 'None'}")
+        return api_key
         
     def _handle_rate_limit(self):
         """Handle rate limiting."""
@@ -69,9 +86,17 @@ class LLMPlayer:
         """
         self._handle_rate_limit()
         
+        # Ensure API key is set for this request
+        if self.provider_name == 'openai':
+            litellm.openai_key = self.api_key
+        elif self.provider_name == 'anthropic':
+            litellm.anthropic_key = self.api_key
+        elif self.provider_name == 'cohere':
+            litellm.cohere_key = self.api_key
+            
         litellm.set_verbose = True
         try:
-            logger.info(f"Requesting move from {self.model_name}")
+            logger.info(f"Requesting move from {self.model_name} using {self.provider_name} key: {self.api_key[:10]}...")
             logger.debug(f"Current board:\n{board_ascii}")
             logger.debug(f"Move history: {move_history}")
             
@@ -83,6 +108,7 @@ class LLMPlayer:
             
             logger.debug(f"Sending prompt to LLM:\n{prompt}")
             
+            # Add api_key explicitly in the completion call
             response = completion(
                 model=self.model_name,
                 messages=[
@@ -90,7 +116,8 @@ class LLMPlayer:
                     {"role": "user", "content": prompt}
                 ],
                 temperature=0.3,
-                max_tokens=10
+                max_tokens=10,
+                api_key=self.api_key
             )
             
             move = response.choices[0].message.content.strip()
