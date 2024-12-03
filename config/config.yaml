@@ -1,0 +1,42 @@
+# Chess engine configuration
+engine:
+  skill_levels: [0, 5, 10, 15, 20]
+  time_limit: 0.1
+
+# LLM providers and their models
+providers:
+  openai:
+    enabled: true
+    models:
+      - name: "gpt-4"
+        description: "Standard GPT-4 model"
+      - name: "gpt-4-turbo-preview"
+        description: "Most capable GPT-4 model"
+    rate_limit:
+      requests_per_minute: 50
+      retry_after: 20
+
+  anthropic:
+    enabled: true
+    models:
+      - name: "claude-3-sonnet-20240229"
+        description: "Latest Claude model"
+      - name: "claude-instant-1.2"
+        description: "Faster Claude model"
+    rate_limit:
+      requests_per_minute: 50
+      retry_after: 20
+
+  cohere:
+    enabled: false
+    models:
+      - name: "command-nightly"
+        description: "Latest Cohere model"
+    rate_limit:
+      requests_per_minute: 20
+      retry_after: 30
+
+# Game settings
+game:
+  num_games_per_skill_level: 3
+  num_llm_vs_llm_games: 5
