@@ -1,0 +1,19 @@
+Chess LLM Evaluation Summary
+==============================
+
+Overall Statistics:
+Total games played: 30
+Games won by LLMs: 0
+Games won by engine: 0
+
+Per Model Statistics:
+
+claude-3-5-sonnet-latest:
+Games played: 15
+Win rate: 0.00%
+Average illegal moves: 3.00
+
+claude-haiku-20240307:
+Games played: 15
+Win rate: 0.00%
+Average illegal moves: 3.00

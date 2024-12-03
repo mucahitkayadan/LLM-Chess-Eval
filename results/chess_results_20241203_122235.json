@@ -1,0 +1,272 @@
+[
+  {
+    "timestamp": "2024-12-03T12:22:30.425178",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 0,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:30.587218",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 0,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:30.751746",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 0,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:30.901775",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 5,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:31.063295",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 5,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:31.214448",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 5,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:31.382085",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 10,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:31.535299",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 10,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:31.716944",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 10,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:31.869492",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 15,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:32.033547",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 15,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:32.186254",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 15,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:32.346448",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 20,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:32.504589",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 20,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:32.669115",
+    "llm_model": "claude-3-5-sonnet-latest",
+    "engine_skill_level": 20,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:32.821143",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 0,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:32.981683",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 0,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:33.132763",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 0,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:33.292746",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 5,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:33.443223",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 5,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:33.609265",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 5,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:33.760784",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 10,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:33.921846",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 10,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:34.072365",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 10,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:34.234318",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 15,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:34.384803",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 15,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:34.542840",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 15,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:34.695266",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 20,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:34.854787",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 20,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  },
+  {
+    "timestamp": "2024-12-03T12:22:35.006923",
+    "llm_model": "claude-haiku-20240307",
+    "engine_skill_level": 20,
+    "llm_plays_white": true,
+    "moves": [],
+    "result": "engine_won_illegal_moves",
+    "illegal_moves": 3
+  }
+]
