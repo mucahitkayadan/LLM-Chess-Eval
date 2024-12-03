@@ -11,7 +11,7 @@ providers:
     models:
       - name: "gpt-4"
         description: "Standard GPT-4 model"
-      - name: "gpt-4-turbo-preview"
+      - name: "gpt-4o-latest"
         description: "Most capable GPT-4 model"
     rate_limit:
       requests_per_minute: 50
@@ -21,7 +21,7 @@ providers:
     name: "anthropic"
     enabled: true
     models:
-      - name: "claude-3-sonnet-20240229"
+      - name: "claude-3-5-sonnet-latest"
         description: "Latest Claude model"
       - name: "claude-instant-1.2"
         description: "Faster Claude model"
