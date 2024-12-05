@@ -19,8 +19,6 @@
 
 </div>
 
-</div>
-
 A sophisticated framework for evaluating Large Language Models' chess-playing capabilities through matches against Stockfish and other LLMs.
 
 ## 🌟 Features
@@ -49,24 +47,25 @@ A sophisticated framework for evaluating Large Language Models' chess-playing ca
 - Stockfish chess engine
 - API keys for the LLMs you want to test
 
-2. Edit the `.env` file and add your API keys:
+1. Edit the `.env` file and add your API keys:
 - OPENAI_API_KEY: Get from [OpenAI](https://platform.openai.com/account/api-keys)
 - ANTHROPIC_API_KEY: Get from [Anthropic](https://console.anthropic.com/account/keys)
 - COHERE_API_KEY: Get from [Cohere](https://dashboard.cohere.ai/api-keys)
 - PALM_API_KEY: Get from [Google AI Studio](https://makersuite.google.com/app/apikey)
 
-1. Clone the repository:
+2. Clone the repository:
 
 ```bash
+git clone https://github.com/mucahitkayadan/LLM-Chess-Eval.git
 ```
 
-2. Install required packages:
+3. Install required packages:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Install Stockfish chess engine:
+4. Install Stockfish chess engine:
    - Windows: Download from [Stockfish website](https://stockfishchess.org/download/)
    - Linux: `sudo apt-get install stockfish`
    - macOS: `brew install stockfish`
@@ -219,7 +218,7 @@ Example provider configuration:
 ```yaml
 new_provider:
   name: "new_provider"
-  enabled: false  # Will be automatically enabled if API key is present
+  enabled: false  # Will be automatically enabled if an API key is present
   models:
     - name: "model-name"
       description: "Model description"
